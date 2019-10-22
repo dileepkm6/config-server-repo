@@ -1,0 +1,20 @@
+#Zuul routes. Here for /student path, we are routing to localhost:8090 with extra path after that.
+zuul:
+  routes:
+    user:
+      url: http://localhost:8082
+
+#Ribbon is auto integrated with Zuul and for this exercise we are not using that.
+ribbon:
+  eureka:
+    enabled: false
+
+eureka:         #tells about the Eureka server details and its refresh time
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+
